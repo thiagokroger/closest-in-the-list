@@ -1,0 +1,61 @@
+{
+  "name": "closest-in-the-list",
+  "version": "0.0.1",
+  "description": "closest-in-the-list",
+  "main": "dist/index.js",
+  "dependencies": {
+    "@google/maps": "^0.5.5",
+    "babel-cli": "^6.26.0",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
+    "rimraf": "^3.0.0"
+  },
+  "devDependencies": {
+    "axios": "^0.19.0",
+    "babel-jest": "^24.9.0",
+    "babel-register": "^6.26.0",
+    "jest": "^24.9.0",
+    "nodemon": "^1.19.1",
+    "prettier": "1.18.2"
+  },
+  "scripts": {
+    "dev": "nodemon src/index.js --exec \"node -r babel-register\"",
+    "prestart": "npm run -s build",
+    "start": "node dist/index.js",
+    "test": "jest --watch",
+    "clean": "rimraf dist",
+    "build": "npm run clean && mkdir -p dist && babel src -s -D -d dist"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "pretty-quick --staged"
+    }
+  },
+  "babel": {
+    "presets": [
+      [
+        "env",
+        {
+          "targets": {
+            "node": "current"
+          }
+        }
+      ]
+    ],
+    "plugins": [
+      "transform-object-rest-spread"
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/thiagokroger/closest-in-the-list.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/thiagokroger/closest-in-the-list/issues"
+  },
+  "homepage": "https://github.com/thiagokroger/closest-in-the-list#readme"
+}
